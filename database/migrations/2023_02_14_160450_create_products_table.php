@@ -18,9 +18,9 @@ return new class extends Migration
 
             $table -> string('name',32);
             $table -> string('code' ,8);
-            $table -> string('description' , 80);
+            $table -> string('description');
             $table -> integer('price',false,true);
-            $table -> integer('height',false,false);
+            $table -> integer('weight',false,false);
             
             $table->timestamps();
         });
