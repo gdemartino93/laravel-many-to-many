@@ -14,10 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-
-            $table -> foreignId('typologies_id') -> constrained();
+            $table -> foreignId('typology_id') -> constrained();
+        });
+        Schema::table('category_product', function (Blueprint $table) {
+            $table -> foreignId('categories_id') -> constrained();
+            $table -> foreignId('products_id') -> constrained();
 
         });
+        
     }
 
     /**
@@ -27,6 +31,23 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('products', function (Blueprint $table) {
+            $table -> dropForeign('products_typology_id_foreign');
+            $table -> dropColumn('typology_id');
+        });
+        Schema::table('category_product', function (Blueprint $table) {
+            $table -> dropForeign('category_product_category_id_foreign');
+            $table -> dropColumn('category_id');
+
+            $table -> dropForeign('category_product_product_id_foreign');
+            $table -> dropColumn('product_id');
+
+            $table -> dropForeign('category_product_categories_id_foreign');
+            $table -> dropColumn('categories_id');
+
+            $table -> dropForeign('category_product_products_id_foreign');
+            $table -> dropColumn('products_id');
+        });
+        
     }
 };
