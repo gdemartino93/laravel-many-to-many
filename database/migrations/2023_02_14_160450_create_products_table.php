@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
 
             $table -> string('name',32);
-            $table -> string('code', 5);
+            $table -> string('code' ,8);
             $table -> string('description' , 80);
             $table -> integer('price',false,true);
             $table -> integer('height',false,false);
