@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', [MainController :: class , 'home'])
     -> name('pages.home');
+
+Route::get('/products', [MainController :: class , 'products'])
+    -> name('pages.products');
