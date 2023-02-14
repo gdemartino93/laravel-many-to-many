@@ -36,10 +36,10 @@ return new class extends Migration
             // $table -> dropColumn('typology_id');
         });
         Schema::table('category_product', function (Blueprint $table) {
-            $table -> dropForeign('category_product_categories_id_foreign');
+            $table -> dropForeign('category_product_category_id_foreign');
             // $table -> dropColumn('category_id');
 
-            $table -> dropForeign('category_product_products_id_foreign');
+            $table -> dropForeign('category_product_product_id_foreign');
             // $table -> dropColumn('product_id');
 
             // $table -> dropForeign('category_product_categories_id_foreign');
