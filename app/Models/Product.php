@@ -8,10 +8,10 @@ class Product extends Model
 {
     use HasFactory;
     public function categories(){
-        return $this->belongsToMany('App\Models\Category');
+        return $this->belongsToMany(Category :: class);
     }
 
-    public function typologies(){
+    public function typology(){
         return $this->belongsTo(Typology :: class);
     }
 }

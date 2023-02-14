@@ -19,7 +19,7 @@ class ProductFactory extends Factory
         return [
             'name' => fake() -> word(),
             'code' => fake() -> ean8(),
-            'description' => fake() -> paragraph(),
+            'description' => fake() -> word(),
             'price' => fake() -> randomFloat(2),
             'weight' => fake() -> numberBetween(1,50)
         ]; 
