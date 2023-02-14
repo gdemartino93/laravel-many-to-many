@@ -6,8 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @yield('title')
     @Vite('resources/js/app.js')
-    
+
 </head>
+<header>
+    @include('components.header')
+</header>
 <body>
     @yield('contents')
 </body>

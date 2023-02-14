@@ -4,5 +4,13 @@
 @endsection
 
 @section('contents')
-    <span class="text-danger">asd</span>
+    <div class="container d-flex flex-wrap">
+        @foreach ($products as $product)
+        <div class="myItem">
+            <h3>{{$product -> name}}</h3>
+        </div>
+           
+        @endforeach
+        asd
+    </div>
 @endsection
