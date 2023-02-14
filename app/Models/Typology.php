@@ -9,6 +9,6 @@ class Typology extends Model
     use HasFactory;
 
     public function products(){
-        return $this->hasOne(Product :: class);
+        return $this->hasMany(Product :: class);
     }
 }
