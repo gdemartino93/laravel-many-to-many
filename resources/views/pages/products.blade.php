@@ -36,7 +36,5 @@
                 </article> 
             @endforeach
         </div>
-
-        asd
     </div>
 @endsection

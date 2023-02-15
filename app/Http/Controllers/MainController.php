@@ -36,9 +36,8 @@ class MainController extends Controller
         ]);
         $code = rand(10000,99999);
         $data['code'] = $code;
-       
-        $product = Product :: make($data);
 
+        $product = Product :: make($data);
         $typology = Typology :: find($data['typology']);
 
         $product -> typology() -> associate($typology);
