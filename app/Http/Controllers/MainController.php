@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 Use App\Models\Product;
 use App\Models\Category;
+use App\Models\Typology;
 
 class MainController extends Controller
 {
@@ -18,5 +19,10 @@ class MainController extends Controller
         $products = Product :: all();
         // dd($products);
         return view('pages.products', compact('products'));
+    }
+    public function createNew(){
+        $categories = Category :: all();
+        $typologies = Typology :: all();
+        return view('pages.createnew',compact('categories', 'typologies'));
     }
 }

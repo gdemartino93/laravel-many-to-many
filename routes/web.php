@@ -13,8 +13,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [MainController :: class , 'home'])
+Route :: get('/', [MainController :: class , 'home'])
     -> name('pages.home');
 
-Route::get('/product', [MainController :: class , 'products'])
+Route :: get('/product', [MainController :: class , 'products'])
     -> name('pages.products');
+
+Route :: get('/createnew',[MainController :: class , 'createNew'])
+    -> name('product.create');
