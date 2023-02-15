@@ -16,7 +16,7 @@ class MainController extends Controller
 
     public function products(){
        
-        $products = Product :: all();
+        $products = Product :: orderBy('created_at', 'DESC') -> get();
         // dd($products);
         return view('pages.products', compact('products'));
     }
@@ -31,7 +31,8 @@ class MainController extends Controller
             'description' => 'required|max:200',
             'price' => 'numeric|between:1,5000',
             'weight' => 'numeric',
-            'typology' => 'required|integer'
+            'typology' => 'required|integer',
+            'categories' => 'required|array'
         ]);
         $code = rand(10000,99999);
         $data['code'] = $code;
@@ -43,6 +44,9 @@ class MainController extends Controller
         $product -> typology() -> associate($typology);
         $product -> save();
 
+        $categories = Category :: find($data['categories']);
+        $product -> categories() -> attach($categories); 
+        dd($categories);
         return redirect() -> route('products-home');
     }
 }
