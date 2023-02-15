@@ -46,7 +46,7 @@ class MainController extends Controller
 
         $categories = Category :: find($data['categories']);
         $product -> categories() -> attach($categories); 
-        dd($categories);
+        // dd($categories);
         return redirect() -> route('products-home');
     }
 }
