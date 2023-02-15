@@ -36,14 +36,26 @@
         </div>
         <select name="typology" class="form-select" id="floatingSelect" aria-label="Floating label select example">
             <option selected>Open this select menu</option>
+
             @foreach ($typologies as $typology)
-                <option name="typology" value="{{$typology -> id}}">{{$typology -> name}}</option>     
+                <option name="typology" value="{{$typology -> id}}"
+                    @if ($product -> typology -> id == $typology -> id)
+                        selected
+                    @endif
+                    >{{$typology -> name}}</option>     
             @endforeach
+
           </select>
         <h3>Chose Categories:</h3>
         @foreach ($categories as $category)
         <div class="form-check form-switch">
-            <input name="categories[]" value="{{$category -> id}}" class="form-check-input" type="checkbox" role="switch" id="category_{{$category->id}}">
+            <input name="categories[]" value="{{$category -> id}}" class="form-check-input" type="checkbox" role="switch" id="category_{{$category->id}}"
+            @foreach ($product -> categories as $productCategory)
+                @if ($productCategory -> id == $category -> id)
+                   checked
+                @endif
+            @endforeach
+            >
             <label class="form-check-label" for="flexSwitchCheckDefault">{{$category -> name}}</label>
           </div>
         @endforeach
