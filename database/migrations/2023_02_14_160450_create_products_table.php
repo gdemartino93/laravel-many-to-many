@@ -19,7 +19,7 @@ return new class extends Migration
             $table -> string('name',32);
             $table -> string('code' ,8);
             $table -> string('description',200);
-            $table -> float('price',false,true);
+            $table -> float('price');
             $table -> integer('weight',false,false);
             
             $table->timestamps();

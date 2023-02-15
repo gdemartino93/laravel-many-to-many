@@ -17,7 +17,9 @@ Route :: get('/', [MainController :: class , 'home'])
     -> name('pages.home');
 
 Route :: get('/product', [MainController :: class , 'products'])
-    -> name('pages.products');
+    -> name('products-home');
 
-Route :: get('/createnew',[MainController :: class , 'createNew'])
+Route :: get('/product/createnew',[MainController :: class , 'createNew'])
     -> name('product.create');
+Route :: post('/product/createnew',[MainController :: class , 'store'])
+    ->name('product.store');

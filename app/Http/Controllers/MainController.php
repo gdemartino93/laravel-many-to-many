@@ -25,4 +25,24 @@ class MainController extends Controller
         $typologies = Typology :: all();
         return view('pages.createnew',compact('categories', 'typologies'));
     }
+    public function store(Request $request){
+        $data = $request -> validate([
+            'name' => 'required|max:32',
+            'description' => 'required|max:200',
+            'price' => 'numeric|between:1,5000',
+            'weight' => 'numeric',
+            'typology' => 'required|integer'
+        ]);
+        $code = rand(10000,99999);
+        $data['code'] = $code;
+       
+        $product = Product :: make($data);
+
+        $typology = Typology :: find($data['typology']);
+
+        $product -> typology() -> associate($typology);
+        $product -> save();
+
+        return redirect() -> route('products-home');
+    }
 }
