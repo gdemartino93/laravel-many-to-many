@@ -35,6 +35,9 @@
                             <span class="mx-3 text-warning">Is Digital? </span>
                             <span> {{$product -> typology -> digital ? "Yes" : "No"}}</span>
                         </div>  
+                        <a href="{{route('product.edit', $product)}}">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
                     </div>  
                 @endforeach
              @endforeach

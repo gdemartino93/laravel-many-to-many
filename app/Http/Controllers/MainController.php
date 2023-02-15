@@ -48,4 +48,12 @@ class MainController extends Controller
         // dd($categories);
         return redirect() -> route('products-home');
     }
+    // redirect to edit page
+    public function edit(Product $product){
+
+        $categories = Category :: all();
+        $typologies = Typology :: all();
+
+        return view('pages.editproduct',compact('categories','typologies','product'));
+    }
 }

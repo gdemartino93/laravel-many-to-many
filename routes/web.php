@@ -19,7 +19,12 @@ Route :: get('/', [MainController :: class , 'home'])
 Route :: get('/product', [MainController :: class , 'products'])
     -> name('products-home');
 
+// create new
 Route :: get('/product/createnew',[MainController :: class , 'createNew'])
     -> name('product.create');
 Route :: post('/product/createnew',[MainController :: class , 'store'])
     ->name('product.store');
+// edit product
+
+Route :: get('/product/editproduct/{product}' , [MainController :: class, 'edit'])
+    -> name('product.edit');
