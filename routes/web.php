@@ -28,3 +28,5 @@ Route :: post('/product/createnew',[MainController :: class , 'store'])
 
 Route :: get('/product/editproduct/{product}' , [MainController :: class, 'edit'])
     -> name('product.edit');
+Route :: post('/product/editproduct/{product}' , [MainController :: class, 'update'])
+    -> name('product.update');

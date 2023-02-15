@@ -16,7 +16,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{route('product.store')}}" method="POST" class="d-flex flex-column col-4 mx-auto">
+    <form action="{{route('product.update', $product)}}" method="POST" class="d-flex flex-column col-4 mx-auto">
         @csrf
         <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Name:</span>
